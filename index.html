@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="dk">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Danmark i Minecraft</title>
+
+		<meta name="description" content="Om Danmark i Minecraft">
+		<meta name="author" content="Simon Kokkendorff">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="img/intro.png">
+					<h1>Frie Data i en Minecraft Verden</h1>
+					<h3>Danmark i Minecraft - et geosocialt eksperiment</h3>
+					<p>
+						<small>Simon Kokkendorff, Thorbjørn Nielsen og Signe Egmose, Geodatastyrelsen</small>
+					</p>
+				</section>
+
+				<section>
+					<img src="img/minecraft.png">
+					<p align="left">
+						Minecraft er et enormt populært 'sandkasse-spil' med <strong>millioner</strong> af registrerede brugere.
+					</p>
+					<p>
+						Fra <a href="http://minecraft.net"> minecraft.net </a>:
+					
+					
+					
+					<blockquote cite="http://minecraft.net">
+						&ldquo; Minecraft is a game about breaking and placing blocks. At first, people built structures to protect against nocturnal monsters, but as the game grew players worked together to create wonderful, imaginative things…&rdquo;
+					</blockquote>
+					</p>
+					
+				</section>
+				<section data-background="img/mc_landscape.png">
+					<h2> Typisk autogenereret Minecraft-landskab </h2>
+				</section>
+				<section data-background="img/lag.png" data-background-size="700px">
+					<h2> Ideen </h2>
+					<p> Hvad nu hvis vi kunne lave en Minecraft-verden af vores egne geodata? </p>
+					<ul>
+						<li class="fragment">Minecraft ville blive til et 3D GIS-system med flere brugere end alle andre GIS-systemer tilsammen!</li>
+						<li class="fragment">Vi ville nå ud til en helt ny skare af brugere.</li>
+						<li class="fragment"> Masser af anvendelsesmuligheder (undervisning, borgerinddragelse, databehandling?) </li>
+						<li class="fragment"><strong> Men er vores <strong> frie </strong> geodata gode nok til at skabe en virtuel verden der 'ligner'?</strong></li>
+					</ul>
+				</section>
+				<section>
+					<h2> Projektet </h2>
+					<p> I starten et fritidsprojekt for Thorbjørn og mig.</p>
+					<ul>
+						<li class="fragment">Vores funktionsleder, Nynne Dalå, fik promoveret ideen internt i GST.</li>
+						<li class="fragment">Det gik godt! Blev formaliseret som et officielt GST-projekt med forankring i FOB - Signe Egmose projektleder.</li>
+						<li class="fragment">Fokus på anvendelser i undervisning.</li>
+						<li class="fragment">Og fokus på frie data! </li>
+					</ul>
+				</section>
+				<section>
+					<h2> Generering af modellen</h2>
+					<p align="left"> Brugte en række open source komponenter og en smule python og c-kode. </p>
+					<pre><code data-trim>
+						def get_next_name(ws_name):	
+							conn = psycopg2.connect(dbstr)
+							curstring = "select * from admin.mcmaster where status is null order by priority"
+							cur = conn.cursor()
+							cur.execute(curstring)
+							myquery=cur.fetchone()
+					</code></pre>
+					<img src="img/tools.png" width="350" height="200">
+				</section>
+				<section>
+					<h2> Processering </h2>
+					<img src="img/data.png" width="700" height="550">
+					
+				</section>
+				<section>
+				     <iframe src="maps/layers.html" width="800" height="600" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px;z-order:1000;"> </iframe>
+				</section>
+				<section data-background="img/steps.png">
+					<h2> Små skridt fremad </h2>
+				</section>
+				<section data-background="img/finally.png">
+					<h2> Og endelig! </h2>
+				</section>
+				<section>
+					<h2>Et overview...</h2>
+					<a href="./server1/index.html#/-39989/64/-120159/-8/0/0" > <img src="img/overview.png" width="600" height="400"> </a>
+				</section>
+				<section>
+					<h2>Nogle udfordringer...</h2>
+				</section>
+				<section data-background="img/badbeach.png" data-background-size="1200px">
+				
+					<h2> Uens dataalder...</h2>
+						
+				</section>
+				<section data-background="img/bigdata.jpg" data-background-size="1200px">
+					
+					<h2>Store datamængder...</h2>
+					<ul>
+						<li class="fragment">Paralleliseret produktionssystem med central database </li>
+						<li class="fragment">Spin off til andre projekter, f.eks. processering af højdemodel </li>
+					</ul>
+					
+				</section>
+				<section data-background="img/rundkoersel.png">
+					<h2> Projektet lanceres - it's alive! </h2>
+					<ul>
+						<li class="fragment"> Lanceres d. 24 april </li>
+						<li class="fragment"> Fra starten stor medieinteresse!</li>
+						<li class="fragment"> Serverne og adminstratorne (os) kan ikke følge med! </li>
+						<li class="fragment"> Våbenkapløb med 'griefere' </li>
+					</ul>
+				</section>
+				<section data-background="img/machine.png">
+					<h2> Griefere</h2>
+					<p> Folk med destruktiv in-game opførsel. </p>
+					<ul>
+						<li> Ødelægger andres byggerier. </li>
+						<li> Forsøger at crashe serverne.  </li>
+					</ul>
+				</section>
+				<section>
+					<h2> Griefere </h2>
+					<a href="./server1/index.html#/-42312/64/-121772/-3/0/0"> <img src="img/watergriefing.png" width="600" height="400"></a>
+				</section>
+				<section data-background="img/house.png">
+					<h2> Geodata som socialt medie </h2>
+					<p> Folk flytter 'ind i modellen', bor i deres virtuelle huse eller hænger bare ud og chatter med andre spillere. </p>
+					<p> Men først og fremmest bygger folk fra hele verden fantastiske og mærkværdige konstruktioner. </p>
+				</section>
+				<section data-background="img/amalienborg.png">
+					<h3> Amalienborg Slotsplads </h3>
+				</section>
+				<section data-background="img/ler1.png">
+					<h3> Lergravsparken</h3>
+				</section>
+				<section data-background="img/ler2.png">
+					<h3> Lergravsparken</h3>
+				</section>
+				<section data-background="img/jagtvej.png">
+					<h3> Jagtvej 69</h3>
+				</section>
+				<section data-background="img/hm.png">
+					<h3> H &amp; M</h3>
+				</section>
+				<section data-background="img/kronborg.png">
+					<h3> Kronborg </h3>
+				</section>
+				<section data-background="img/roskilde.png">
+					<h3> Roskilde Domkirke </h3>
+				</section>
+				<section data-background="img/maribo.png">
+					<h3> Maribo Rådhus </h3>
+				</section>
+				<section data-background="img/flow.png">
+					<h3> Flow-hotellet, Vesterport </h3>
+				</section>
+					
+				<section data-background="img/america.png">
+					<h3> Banegraven i København </h3>
+				</section>
+				<section>
+					<h2> Modtagelse - medier</h2>
+					<img src="img/media.png">
+				</section>
+				<section>
+					<h2> Brugerreaktioner </h2>
+					<img src="img/users.png">
+				</section>
+				<section data-background="img/slut.png">
+					<h2> En succeshistorie </h2>
+					<ul>
+						<li> Ca. 37.000 unikke besøgende på vores servere.</li>
+						<li> Danmark downloadet et utal af gange fra <a href="http://download.kortforsyningen.dk"> download.kortforsyningen.dk </a>
+						<li> Fokus på frie geodata. </li>
+						<li> Åbent for anvendelser i f.eks. undervisning. </li>
+						<li> Og hvad med andre game engines? </li>
+					</ul>
+				</section>
+				<section>
+					<h2> Nytteværdi </h2>
+					<ul>
+						<li> <strong> Hvilken nyttværdi: </strong> <br>Gør geodata, og forståelsen heraf, tilgængelig for et nyt, meget bredt publikum. </li>
+						<li> <strong> Hvorfor: </strong> <br>Minecraft kan bruges som et intuitivt GIS-system med en entutiastisk brugerskare - f.eks. skoleelever
+						 som ikke nødvendigvis er 'bogligt' stærke.
+						 <li> <strong> Hvem: </strong> <br>Borgere som ikke er professionelle GIS-brugere (herunder skolebørn) og myndigheder/firmaer som ønsker at nå ud til denne brugerskare. </li>
+					</ul>
+				</section>
+						
+				
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
